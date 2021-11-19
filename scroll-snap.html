@@ -1,0 +1,59 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible"
+        content="IE=edge">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+  <title>scroll-snap滚动贴合示例</title>
+</head>
+
+<body>
+  <!-- 滚动贴合 -->
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    /* 父容器 */
+    .contaner {
+      scroll-snap-type: y mandatory;
+      height: 100vh;
+      overflow: scroll;
+    }
+
+    .section {
+      width: 100vw;
+      height: 100vh;
+      scroll-snap-align: start;
+    }
+
+    .section-1 {
+      background-color: #cca4e3;
+    }
+
+    .section-2 {
+      background-color: #1685a9;
+    }
+
+    .section-3 {
+      background-color: #4b5cc4;
+    }
+
+    .section-4 {
+      background-color: #8d4bbb;
+    }
+  </style>
+
+  <div class="contaner">
+    <div class="section section-1">1</div>
+    <div class="section section-2">2</div>
+    <div class="section section-3">3</div>
+    <div class="section section-4">4</div>
+  </div>
+</body>
+
+</html>
