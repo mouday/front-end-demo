@@ -1,0 +1,126 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible"
+          content="IE=edge">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <title>swiper.js叠加轮播图</title>
+</head>
+
+<body>
+    <link rel="stylesheet"
+          href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+
+
+
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* 外层容器 */
+        .swiper {
+            width: 600px;
+            height: 300px;
+        }
+
+        /* 轮播项 */
+        .swiper .swiper-slide {
+            width: 80%;
+            height: 100%;
+
+            font-size: 32px;
+            font-weight: 500;
+            color: #ffffff;
+
+            /* 文字垂直居中 */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* 色彩来源：https://color.uisdc.com/ */
+        .swiper .swiper-slide-1 {
+            background-color: #425066;
+        }
+
+        .swiper .swiper-slide-2 {
+            background-color: #8d4bbb;
+        }
+
+        .swiper .swiper-slide-3 {
+            background-color: #9d2933;
+        }
+
+        .swiper .swiper-slide-4 {
+            background-color: #003371;
+        }
+
+        .swiper .swiper-slide-5 {
+            background-color: #4c8dae;
+        }
+    </style>
+
+
+    <div class="swiper">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+            <!-- Slides -->
+            <div class="swiper-slide swiper-slide-1">1</div>
+            <div class="swiper-slide swiper-slide-2">2</div>
+            <div class="swiper-slide swiper-slide-3">3</div>
+            <div class="swiper-slide swiper-slide-4">4</div>
+            <div class="swiper-slide swiper-slide-5">5</div>
+        </div>
+        <!-- If we need pagination -->
+        <div class="swiper-pagination"></div>
+
+        <!-- If we need navigation buttons -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+
+        <!-- If we need scrollbar -->
+        <div class="swiper-scrollbar"></div>
+    </div>
+
+
+    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+
+    <script>
+        // 参考： 
+        // 1、swiper叠加轮播效果 （含源码） - 案例篇https://blog.csdn.net/qq_35393869/article/details/105713272
+        // 2、https://swiperjs.com/get-started#initialize-swiper
+        const swiper = new Swiper('.swiper', {
+            effect: 'coverflow',
+            loop: true,
+            grabCursor: true,
+            centeredSlides: true,
+            slidesPerView: 'auto',
+            coverflowEffect: {
+                rotate: 0,
+                stretch: 0,
+                depth: 500,
+                modifier: 1,
+                slideShadows: false,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+            },
+            navigation: {
+                nextEl: '.swiper-button-prev',
+                prevEl: '.swiper-button-next',
+            },
+        });
+
+        // 监听改变事件
+        swiper.on('slideChange', (e) => {
+            console.log(e.realIndex);
+        });
+    </script>
+</body>
+
+</html>
