@@ -1,0 +1,46 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible"
+          content="IE=edge">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <title>animate.css和wow.js实现网页动画效果</title>
+</head>
+
+<body>
+
+    <link href="https://cdn.bootcdn.net/ajax/libs/animate.css/4.1.1/animate.min.css"
+          rel="stylesheet">
+    <style>
+        .box {
+            width: 300px;
+            height: 300px;
+            background-color: #eeeeee;
+            margin: 0 auto;
+            /* 让元素在下一屏幕显示 */
+            margin-top: 1000px;
+            
+        }
+    </style>
+
+    <!-- 增加一个类名：wow -->
+    <div class="box wow animate__animated animate__swing"></div>
+
+    <!-- 引入并初始化 wow -->
+    <script src="https://cdn.bootcdn.net/ajax/libs/wow/1.1.2/wow.min.js"></script>
+    <script>
+        var wow = new WOW({
+            boxClass: 'wow',
+            animateClass: 'animate__animated',
+            offset: 0,
+            mobile: true,
+            live: true
+        });
+        wow.init();
+    </script>
+
+</body>
+
+</html>
