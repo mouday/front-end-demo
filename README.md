@@ -10,4 +10,4 @@
 
 [3、animate.css和wow.js实现网页动画效果](animate-wow.html)
 
-[4、swiper.js叠加轮播图](swiper.js.html)
+[4、swiper.js叠加轮播图](swiperjs.html)
