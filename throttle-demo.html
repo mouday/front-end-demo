@@ -1,0 +1,49 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible"
+          content="IE=edge">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <title>throttle节流</title>
+</head>
+
+<body>
+
+    <div id="container">
+        <div>打开控制台查看效果</div>
+    </div>
+
+    <style>
+        #container {
+            height: 200vh;
+        }
+    </style>
+
+    <script>
+        function handleScroll() {
+            console.log('scrollTop:', document.body.scrollTop);
+        }
+
+        function throttle(func, wait) {
+            let timer = null;
+
+            return function (...args) {
+                if (timer) {
+                    return;
+                }
+
+                timer = setTimeout(() => {
+                    func.call(this, ...args);
+                    timer = null;
+                }, wait)
+            }
+        }
+
+        // let container = document.getElementById('container')
+        document.addEventListener('scroll', throttle(handleScroll, 500))
+    </script>
+</body>
+
+</html>

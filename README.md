@@ -13,3 +13,7 @@
 [4、swiper.js 叠加轮播图](swiperjs.html)
 
 [5、Json 数据转换](json-convert/dist/index.html)
+
+[6、debounce 防抖](debounce-demo.html)
+
+[7、throttle 节流](throttle-demo.html)

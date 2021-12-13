@@ -1,0 +1,42 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible"
+          content="IE=edge">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <title>debounce防抖</title>
+</head>
+
+<body>
+    <div>
+        <div>打开控制台查看效果</div>
+        <input type="text"
+               id="keyword">
+    </div>
+
+    <script>
+        function handleInput(e) {
+            console.log(this);
+            console.log('input：', e.target.value);
+        }
+
+        function debounce(func, wait) {
+            let timer = null;
+
+            return function (...args) {
+                if (timer) {
+                    clearTimeout(timer);
+                }
+
+                timer = setTimeout(func.bind(this, ...args), wait)
+            }
+        }
+
+        let keyword = document.getElementById('keyword')
+        keyword.addEventListener('input', debounce(handleInput, 500))
+    </script>
+</body>
+
+</html>
