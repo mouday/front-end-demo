@@ -1,0 +1,69 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible"
+          content="IE=edge">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .cover-wrap {
+            width: 200px;
+            height: 200px;
+            border: 40px solid #000000;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+
+        @keyframes playmusic {
+
+            /* 起始位置 */
+            from {
+                transform: rotate(0deg);
+            }
+
+            /* 结束位置 */
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .cover {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+
+            /* 动画属性 */
+            animation-name: playmusic;
+            animation-duration: 4s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+        }
+    </style>
+
+    <div>animation@keyframes 实现 CD播放效果</div>
+    <div class="cover-wrap">
+        <img class="cover"
+             src="https://api.isoyu.com/bing_images.php">
+    </div>
+</body>
+
+</html>
