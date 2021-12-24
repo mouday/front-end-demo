@@ -18,4 +18,6 @@
 
 [7、throttle 节流](throttle-demo.html)
 
-[8、animation@keyframes 实现 CD播放效果](animation-keyframes.html)
+[8、animation@keyframes 实现 CD 播放效果](animation-keyframes.html)
+
+[9、托尼老师理发店门口的灯柱子](css-repeating-linear-gradient/index.html)

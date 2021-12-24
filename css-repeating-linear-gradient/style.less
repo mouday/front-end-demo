@@ -1,0 +1,50 @@
+html,
+body {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+.bar {
+  position: relative;
+  width: 40px;
+  height: 400px;
+  margin: auto;
+  border-radius: 20px;
+  border: 1px solid #000;
+  background: #ffba01;
+
+  &::before {
+    position: absolute;
+    content: '';
+    top: 0;
+    right: 0;
+    width: 100px;
+    height: 400px;
+    background: repeating-linear-gradient(
+      135deg,
+      #f06a0e,
+      #f06a0e 10px,
+      transparent 11px,
+      transparent 19px,
+      #f06a0e 20px
+    );
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    animation: move 1s linear infinite;
+  }
+}
+
+.overflow {
+  overflow: hidden;
+}
+
+@keyframes move {
+  from {
+    background-position: 0 0;
+  }
+
+  to {
+    background-position: 58px 0;
+  }
+}
