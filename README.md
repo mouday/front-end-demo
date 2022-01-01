@@ -21,3 +21,7 @@
 [8、animation@keyframes 实现 CD 播放效果](animation-keyframes.html)
 
 [9、托尼老师理发店门口的灯柱子](css-repeating-linear-gradient/index.html)
+
+[10、canvas 示例-刮刮乐](canvas/canvas-scrape.html)
+
+[11、canvas 示例-时钟](canvas/canvas-clock.html)

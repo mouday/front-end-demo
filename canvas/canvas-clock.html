@@ -1,0 +1,168 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible"
+          content="IE=edge">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <title>canvas示例-时钟</title>
+</head>
+
+<body>
+
+    <canvas id="canvas"
+            width="600"
+            height="600"></canvas>
+
+    <script>
+        let canvas = document.querySelector('#canvas');
+        let ctx = canvas.getContext('2d');
+        let width = canvas.width
+        let height = canvas.height
+
+        // 绘制内容区域相对画布的大小 80%
+        let scale = 0.8;
+
+        // 计算半径
+        let radius = Math.floor(Math.min(width, height) * scale * 0.5);
+        console.log('radius', radius);
+
+        // 绘制外边框
+        // ctx.beginPath();
+        // ctx.strokeRect(0, 0, width, height);
+        // ctx.closePath()
+
+
+        // 绘制时钟刻度
+        function drawClockScale({
+            number = 12,
+            strokeStyle = 'black',
+            lineWidth = 3,
+            lineLength = 20,
+        }) {
+            ctx.save();
+
+            ctx.strokeStyle = strokeStyle;
+            ctx.lineWidth = lineWidth;
+            let rotateAngle = (360 / number);
+
+            for (let i = 0; i < number; i++) {
+                ctx.rotate((Math.PI / 180) * rotateAngle);
+                ctx.beginPath();
+                ctx.moveTo(radius - lineLength, 0);
+                ctx.lineTo(radius, 0);
+                ctx.stroke();
+                ctx.closePath()
+            }
+
+            ctx.restore();
+        }
+
+        function drawClock() {
+            ctx.clearRect(0, 0, width, height);
+
+            ctx.save();
+            // 将坐标轴原点移动到画布中心
+            ctx.translate(width / 2, height / 2);
+            // 旋转坐标轴x指向画布正上方
+            ctx.rotate(-Math.PI / 180 * 90);
+
+
+
+            // 分针和秒针的刻度
+            drawClockScale({
+                number: 60,
+                strokeStyle: 'green',
+                lineWidth: 4,
+                lineLength: 14
+            });
+
+            // 时针刻度
+            drawClockScale({
+                number: 12,
+                strokeStyle: 'red',
+                lineWidth: 8,
+                lineLength: 20
+            });
+
+            // 绘制指针
+            let now = new Date();
+            let hour = now.getHours();
+            let minute = now.getMinutes();
+            let second = now.getSeconds();
+
+            console.log(`${hour}: ${minute}: ${second}`);
+
+            // 绘制秒针
+            ctx.save();
+            ctx.beginPath();
+            ctx.rotate((Math.PI / 180) * (360 / 60) * second);
+            ctx.strokeStyle = "deepskyblue";
+            ctx.lineWidth = 2;
+            ctx.moveTo(-20, 0);
+            ctx.lineTo(radius - 30, 0);
+            ctx.stroke();
+            ctx.closePath()
+            ctx.restore();
+
+            // 绘制分针
+            ctx.save();
+            ctx.rotate((Math.PI / 180) * ((360 / 60) * minute + (360 / 60 / 60) * second));
+            ctx.beginPath();
+
+            ctx.strokeStyle = "green";
+            ctx.lineWidth = 4;
+            ctx.moveTo(-20, 0);
+            ctx.lineTo(radius - 40, 0);
+            ctx.stroke();
+
+            ctx.closePath()
+            ctx.restore();
+
+            // 处理成12小时制
+            if (hour > 12) {
+                hour = hour - 12
+            }
+
+            // 绘制时针
+            ctx.save();
+            ctx.beginPath();
+            ctx.rotate((Math.PI / 180) * ((360 / 12) * hour + (360 / 12 / 60) * minute + (360 / 12 / 60 / 60) *
+                second));
+            ctx.strokeStyle = "red";
+            ctx.lineWidth = 8;
+            ctx.moveTo(-20, 0);
+            ctx.lineTo(radius - 50, 0);
+            ctx.stroke();
+            ctx.closePath()
+            ctx.restore();
+
+            // 绘制圆心
+            ctx.beginPath();
+            ctx.fillStyle = "grey";
+            ctx.lineWidth = 10;
+            ctx.arc(0, 0, 10, 0, Math.PI / 180 * 360);
+            ctx.fill();
+            ctx.closePath()
+
+            // 绘制圆
+            ctx.beginPath();
+            ctx.strokeStyle = "grey";
+            ctx.lineWidth = 10;
+            ctx.arc(0, 0, radius, 0, Math.PI / 180 * 360);
+            ctx.stroke();
+            ctx.closePath()
+
+            ctx.restore();
+        }
+
+        // 每隔1秒重绘一次
+        setInterval(() => {
+            drawClock();
+        }, 1000)
+    </script>
+
+</body>
+
+</html>

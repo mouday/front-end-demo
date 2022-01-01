@@ -1,0 +1,144 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible"
+          content="IE=edge">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <title>canvas示例-刮刮乐</title>
+</head>
+
+<body>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .box-wrap {
+            position: relative;
+            width: 300px;
+            height: 150px;
+            border: 1px solid #eeeeee;
+        }
+
+        .box {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 25px;
+            color: red;
+            letter-spacing: 20px;
+        }
+
+        .canvas {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+
+    <!-- 刮刮乐 -->
+    <div class="box-wrap">
+        <div class="box"
+             id="text">谢谢惠顾</div>
+        <canvas class="canvas"
+                id="canvas"
+                width="600"
+                height="300"></canvas>
+    </div>
+
+    <script>
+        let canvas = document.querySelector('#canvas');
+        let text = document.querySelector('#text');
+        let ctx = canvas.getContext('2d');
+
+        let clientWidth = canvas.clientWidth;
+        let clientHeight = canvas.clientHeight;
+        let width = canvas.width
+        let height = canvas.height
+
+        // 缩放比例
+        let widthScale = width / clientWidth;
+        let heightScale = height / clientHeight;
+
+        // 绘制背景图
+        ctx.fillStyle = 'gray';
+        ctx.fillRect(0, 0, width, height);
+        ctx.save();
+
+        // 绘制文字
+        ctx.translate(width / 2, height / 2);
+        ctx.textAlign = "center";
+        ctx.textBaseline = "middle";
+        ctx.font = "50px 微软雅黑"
+        ctx.fillStyle = 'white';
+        ctx.fillText('刮开查看', 0, 0);
+        // ctx.fill();
+        ctx.restore();
+
+        // 监听鼠标事件
+        let isDraw = false;
+        canvas.onmousedown = function (e) {
+            // console.log(e);
+            isDraw = true;
+        }
+        canvas.onmouseup = function (e) {
+            // console.log(e);
+            isDraw = false;
+        }
+
+        canvas.onmousemove = function (e) {
+            if (!isDraw) {
+                return;
+            }
+            // console.log(e);
+            // ctx.fillStyle = 'white';
+
+            // 在源图像之外显示目标图像。只有源图像之外的目标图像部分会被显示，源图像是透明的
+            ctx.globalCompositeOperation = 'destination-out'
+            // console.log(e.offsetX, e.offsetY);
+            ctx.arc(e.offsetX * widthScale, e.offsetY * heightScale, 30, 0, Math.PI / 180 * 360);
+            ctx.fill();
+        }
+
+        // 奖品设置
+        let list = [{
+                title: '一等奖',
+                probability: 0.1
+            },
+            {
+                title: '二等奖',
+                probability: 0.2
+            },
+            {
+                title: '三等奖',
+                probability: 0.3
+            }
+        ]
+
+        let randomNum = Math.random();
+        console.log(randomNum);
+        let randomNumUpperBound = 0;
+
+        for (let item of list) {
+            randomNumUpperBound += item.probability
+            if (randomNum < randomNumUpperBound) {
+                text.innerText = item.title;
+                break;
+            }
+        }
+    </script>
+
+</body>
+
+</html>
