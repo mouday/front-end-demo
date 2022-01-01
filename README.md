@@ -2,7 +2,10 @@
 
 一些前端代码 demo
 
-演示地址：[https://mouday.github.io/front-end-demo/](https://mouday.github.io/front-end-demo/)
+- 开原地址：[https://github.com/mouday/front-end-demo](https://github.com/mouday/front-end-demo)
+- 演示地址：[https://mouday.github.io/front-end-demo/](https://mouday.github.io/front-end-demo/)
+
+## 全部示例
 
 [1、scroll-snap 滚动贴合示例](scroll-snap.html)
 
