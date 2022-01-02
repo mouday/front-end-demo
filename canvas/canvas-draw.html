@@ -148,8 +148,7 @@
         let drawType = null; // 绘制类型
         let startPoint = null; // 落笔点
         let endPoint = null; // 起笔点
-        let color = null;
-        let cacheImage = null;
+        let cacheImage = null; // 上一次绘制的图像
 
         // 绘制手写图形
         function drawPen() {
@@ -256,7 +255,7 @@
             ctx.lineWidth = lineWidth.value;
 
             // 设置颜色
-            color = document.querySelector('#color');
+            let color = document.querySelector('#color');
             ctx.strokeStyle = color.value
             ctx.fillStyle = color.value
 
