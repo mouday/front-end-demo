@@ -28,3 +28,5 @@
 [10、canvas 示例-刮刮乐](canvas/canvas-scrape.html)
 
 [11、canvas 示例-时钟](canvas/canvas-clock.html)
+
+[12、canvas示例-画板](canvas/canvas-draw.html)
