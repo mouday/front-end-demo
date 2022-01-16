@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible"
+          content="IE=edge">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <title>Canvas绘制圆角头像</title>
+</head>
+
+<body>
+    <canvas id="canvas"
+            width="500"
+            height="500"></canvas>
+
+    <script>
+        let Canvas = document.querySelector('#canvas');
+        let ctx = Canvas.getContext("2d");
+
+        // 绘制画布背景
+        ctx.fillStyle = "#ccc";
+        ctx.fillRect(0, 0, 500, 500);
+
+        // 绘制圆形头像
+        let avatar = new Image();
+        avatar.src = 'https://api.sunweihu.com/api/sjtx/api.php?lx=c1';
+
+        avatar.onload = (res) => {
+            // console.log(res);
+            console.log(avatar.height, avatar.width);
+            drawCircleImage(ctx, avatar, 250, 250, 100);
+
+            // 图像绘制完成之后继续绘制其他内容
+            ctx.strokeStyle = 'red'
+            ctx.strokeRect(20, 20, 460, 460);
+        }
+
+        /**
+         * ctx 画布上下文
+         * img 图片对象
+         * （x, y）圆心坐标
+         * radius 半径
+         * 注意：绘制圆形头像之前，保存画笔；绘制完成后恢复
+         * */
+        function drawCircleImage(ctx, img, x, y, radius) {
+            ctx.save();
+
+            let size = 2 * radius;
+            ctx.arc(x, y, radius, 0, 2 * Math.PI);
+            ctx.clip();
+            ctx.drawImage(img, x - radius, y - radius, size, size);
+
+            ctx.restore();
+        }
+    </script>
+</body>
+
+</html>
