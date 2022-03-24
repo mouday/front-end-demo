@@ -1,7 +1,7 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 935:
+/***/ 711:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -60,7 +60,7 @@ function json2php(data) {
   var replace_map = {
     '{': '[',
     '}': ']',
-    ':': '=>'
+    '": ': '"=> '
   };
 
   for (var _i2 = 0, _Object$entries = Object.entries(replace_map); _i2 < _Object$entries.length; _i2++) {
@@ -108,7 +108,7 @@ var convert_map = {
 
 /***/ }),
 
-/***/ 92:
+/***/ 348:
 /***/ (() => {
 
 String.prototype.replaceAll = function (pattern, replaceValue) {
@@ -178,9 +178,9 @@ var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be in strict mode.
 (() => {
 "use strict";
-/* harmony import */ var _string_polyfill_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(92);
+/* harmony import */ var _string_polyfill_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(348);
 /* harmony import */ var _string_polyfill_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_string_polyfill_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _convert__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(935);
+/* harmony import */ var _convert__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(711);
 
 
 

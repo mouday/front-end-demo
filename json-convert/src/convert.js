@@ -33,7 +33,7 @@ function json2php(data) {
   let replace_map = {
     '{': '[',
     '}': ']',
-    ':': '=>',
+    '": ': '"=> ',
   };
 
   for (let [key, value] of Object.entries(replace_map)) {

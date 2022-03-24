@@ -34,3 +34,39 @@ body {
 .error-message {
   color: red;
 }
+
+/* 按钮美化 */
+// element-ui
+.mo-button {
+  display: inline-block;
+  line-height: 1;
+  white-space: nowrap;
+  cursor: pointer;
+  background: #fff;
+  border: 1px solid #dcdfe6;
+  color: #606266;
+  -webkit-appearance: none;
+  text-align: center;
+  box-sizing: border-box;
+  outline: none;
+  transition: 0.1s;
+
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  padding: 12px 20px;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 4px;
+
+  color: #fff;
+  background-color: #409eff;
+  border-color: #409eff;
+
+  &:hover {
+    /* 鼠标移入按钮范围时改变颜色 */
+    background: #66b1ff;
+    border-color: #66b1ff;
+    color: #fff;
+  }
+}
