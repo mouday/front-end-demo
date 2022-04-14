@@ -32,3 +32,5 @@
 [12、canvas 示例-画板](canvas/canvas-draw.html)
 
 [13、Canvas 绘制圆角头像](canvas/canvas-avatar.html)
+
+[14、一行上不同大小的文字上下居中对齐](one-line-text.html)

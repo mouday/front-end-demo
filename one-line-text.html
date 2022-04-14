@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible"
+          content="IE=edge">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <title>一行上不同大小的文字上下居中对齐</title>
+
+
+</head>
+
+<body>
+    <style>
+        body {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .row {
+            background-color: #cccccc;
+        }
+
+        .row+.row {
+            margin-top: 40px;
+        }
+
+        .title {
+            font-size: 26px;
+            background-color: #c9e2b3;
+        }
+
+        .price {
+            font-size: 36px;
+            background-color: #a6e1ec;
+        }
+
+        .label {
+            font-size: 22px;
+            background-color: #ff7800;
+        }
+
+        .middle {
+            vertical-align: middle;
+        }
+    </style>
+
+    <!-- 默认是不对齐的 -->
+    <div class="row">
+        <span class="title">总价</span>
+        <span class="price">200万</span>
+        <span class="label">最多省20万</span>
+    </div>
+
+    <!-- 垂直方向居中对齐 -->
+    <div class="row">
+        <span class="title middle">总价</span>
+        <span class="price middle">200万</span>
+        <span class="label middle">最多省20万</span>
+    </div>
+
+</body>
+
+</html>
