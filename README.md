@@ -34,3 +34,5 @@
 [13、Canvas 绘制圆角头像](canvas/canvas-avatar.html)
 
 [14、一行上不同大小的文字上下居中对齐](one-line-text.html)
+
+[15、selection自定义用户选中部分颜色](selection.html)

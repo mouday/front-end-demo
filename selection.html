@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <style>
+      .main{
+        text-align: center;
+      }
+
+      .content {
+        white-space: pre-line;
+        margin-top: 20px;
+      }
+
+      /* E9+, Opera, Google Chrome和Safari */
+      .content::selection {
+        color: #ffffff;
+        background-color: #ff0000;
+      }
+
+      /* Firefox */
+      .content::-moz-selection {
+        color: #ffffff;
+        background-color: #ff0000;
+      }
+
+    </style>
+
+    <div class="main">
+      <div class="title">丁洲怀古</div>
+      <div class="author">王绪〔清代〕</div>
+      <div class="content">特统精兵御上游，
+        笳吹先遁惊若鸥。
+        扬州空把残旗耀，
+        赢得舟中骂不休。
+      </div>
+    </div>
+  </body>
+</html>
