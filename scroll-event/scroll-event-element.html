@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Scroll Demo</title>
+  </head>
+  <body>
+    <style>
+      .box-wrap {
+        height: 500px;
+        overflow-y: auto;
+      }
+
+      .box {
+        height: 5000px;
+        text-align: center;
+      }
+    </style>
+
+    <div class="box-wrap" id="box">
+      <div class="box">打开控制台查看</div>
+    </div>
+
+    <script>
+      // 监听滚动
+
+      let box = document.querySelector("#box");
+      box.addEventListener("scroll", function (e) {
+        let scrollTop = e.target.scrollTop;
+        let clientHeight = e.target.clientHeight;
+        let scrollHeight = e.target.scrollHeight;
+
+        // 打印数值
+        console.table([
+          {
+            label: "距顶部",
+            value: scrollTop,
+          },
+          {
+            label: "可视区高度",
+            value: clientHeight,
+          },
+          {
+            label: "滚动条总高度",
+            value: scrollHeight,
+          },
+          {
+            label: "距顶部 + 可视区高度",
+            value: scrollTop + clientHeight,
+          },
+        ]);
+      });
+    </script>
+  </body>
+</html>
