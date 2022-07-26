@@ -1,0 +1,28 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>模糊样式</title>
+  </head>
+
+  <body>
+    <style>
+      body {
+        text-align: center;
+      }
+
+      /* 模糊样式 */
+      .content--filter {
+        filter: blur(5px);
+      }
+    </style>
+
+    <!-- 直接显示 -->
+    <div class="box">此曲只应天上有</div>
+    <!-- 原内容遮罩 -->
+    <div class="box content--filter">此曲只应天上有</div>
+    <!-- 内容替换遮罩 -->
+    <div class="box content--filter">******</div>
+  </body>
+</html>
