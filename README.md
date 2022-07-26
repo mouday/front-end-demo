@@ -41,3 +41,5 @@
 
 - [16.1、监听浏览器scroll滚动事件,触顶和触底](scroll-event/scroll-event-document.html)
 - [16.2、监听元素scroll滚动事件,触顶和触底](scroll-event/scroll-event-element.html)
+
+17、[文字模糊样式](css-filter.html)
