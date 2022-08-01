@@ -43,3 +43,5 @@
 - [16.2、监听元素scroll滚动事件,触顶和触底](scroll-event/scroll-event-element.html)
 
 17、[文字模糊样式](css-filter.html)
+
+18、[CSS层级小技巧：在滚动时自动添加头部阴影](CSS-auto-header-shadow.html)
