@@ -45,3 +45,5 @@
 17、[文字模糊样式](css-filter.html)
 
 18、[CSS层级小技巧：在滚动时自动添加头部阴影](CSS-auto-header-shadow.html)
+
+19、[requestAnimationFrame实现浏览器动画](requestAnimationFrame.html)
