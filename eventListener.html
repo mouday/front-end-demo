@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      http-equiv="X-UA-Compatible"
+      content="IE=edge"
+    />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>eventListener</title>
+  </head>
+  <body>
+    <h1>看控制台输出</h1>
+
+    <button onclick="addClickEventListener()">添加事件监听</button>
+    <button onclick="removeClickEventListener()">移除事件监听</button>
+
+    <script>
+      // 事件处理函数
+      function handleEvent(event) {
+        console.log(event)
+      }
+
+      // 添加事件监听
+      function addClickEventListener() {
+        console.log('addClickEventListener')
+        document.addEventListener('click', handleEvent)
+      }
+
+      // 移除事件监听
+      function removeClickEventListener() {
+        console.log('removeClickEventListener')
+        document.removeEventListener('click', handleEvent)
+      }
+    </script>
+  </body>
+</html>
