@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EventListener-keydown</title>
+  </head>
+  <body>
+    <h1>按下键盘试试</h1>
+
+    <div id="text"></div>
+
+    <script>
+      function eventHandler(event) {
+        console.log(event);
+
+        let data = {
+          code: event.code,
+          key: event.key,
+          keyCode: event.keyCode,
+          altKey: event.altKey,
+          shiftKey: event.shiftKey,
+          ctrlKey: event.ctrlKey,
+          metaKey: event.metaKey,
+        };
+
+        let list = [];
+        for (let [key, value] of Object.entries(data)) {
+          list.push(`<li>${key}: ${value}</li>`);
+        }
+
+        document.querySelector("#text").innerHTML = list.join("");
+      }
+
+      document.addEventListener("keydown", this.eventHandler.bind(this));
+    </script>
+  </body>
+</html>
