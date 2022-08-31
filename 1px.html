@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>实现1px的细线</title>
+  </head>
+  <body>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      .box {
+        width: 500px;
+        height: 100px;
+        box-sizing: border-box;
+      }
+
+      .margin-top--20 {
+        margin-top: 20px;
+      }
+
+      /* 1px border */
+      .border--1 {
+        border: 1px solid gray;
+      }
+
+      .border--0_5 {
+        position: relative;
+      }
+
+      /* 通过伪元素实现 0.5px border */
+      .border--0_5::after {
+        position: absolute;
+        content: "";
+        /* 为了与原元素等大 */
+        box-sizing: border-box;
+        left: 0;
+        top: 0;
+        width: 200%;
+        height: 200%;
+        border: 1px solid gray;
+        transform: scale(0.5);
+        transform-origin: 0 0;
+      }
+
+      .line {
+        width: 500px;
+      }
+
+      /* 实现 1px 细线 */
+      .line--1 {
+        height: 1px;
+        background: #b3b4b8;
+      }
+
+      .line--0_5 {
+        position: relative;
+      }
+
+      /* 通过伪元素实现 0.5px 细线 */
+      .line--0_5::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 200%;
+        height: 1px;
+        background: #b3b4b8;
+        transform: scale(0.5);
+        transform-origin: 0 0;
+      }
+
+      /* dpr适配可以这样写 */
+      @media (-webkit-min-device-pixel-ratio: 2) {
+        .line--0_5::after {
+          height: 1px;
+          transform: scale(0.5);
+          transform-origin: 0 0;
+        }
+      }
+
+      @media (-webkit-min-device-pixel-ratio: 3) {
+        .line--0_5::after {
+          height: 1px;
+          transform: scale(0.333);
+          transform-origin: 0 0;
+        }
+      }
+    </style>
+
+    <h1>1px border</h1>
+    <div class="box border--1"></div>
+
+    <h1 class="margin-top--20">0.5px border</h1>
+    <div class="box border--0_5"></div>
+
+    <h1 class="margin-top--20">1px line</h1>
+    <div class="line line--1"></div>
+
+    <h1 class="margin-top--20">0.5px line</h1>
+    <div class="line line--0_5"></div>
+  </body>
+</html>
