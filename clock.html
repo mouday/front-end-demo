@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>实例：摆动的小球（钟摆效果）</title>
+  </head>
+  <body>
+    <!-- https://zhuanlan.zhihu.com/p/91161919 -->
+    <style>
+      .sphere {
+        width: 60px;
+        height: 60px;
+        background: #9485fd;
+        border-radius: 100%;
+        margin: 280px auto;
+        background: radial-gradient(
+          circle at top center,
+          #c6bff6,
+          #6959d8,
+          #372a91
+        );
+        transform-origin: center -200px;
+        animation: clock 4s infinite linear;
+        position: relative;
+      }
+
+      .sphere::before {
+        content: "";
+        position: absolute;
+        bottom: 100%;
+        left: 50%;
+        width: 1px;
+        height: 200px;
+        border-left: 1px #9485fd dashed;
+      }
+
+      @keyframes clock {
+        0% {
+          transform: rotate(0deg);
+        }
+        25% {
+          transform: rotate(30deg);
+        }
+        50% {
+          transform: rotate(0deg);
+        }
+        75% {
+          transform: rotate(-30deg);
+        }
+        100% {
+          transform: rotate(0deg);
+        }
+      }
+    </style>
+
+    <div class="sphere"></div>
+  </body>
+</html>

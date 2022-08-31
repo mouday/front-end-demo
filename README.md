@@ -55,3 +55,5 @@
 22、[Video封面样式](video/index.html)
 
 23、[实现1px的细线](1px.html)
+
+24、[实例：摆动的小球（钟摆效果）](clock.html)
