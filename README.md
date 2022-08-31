@@ -51,3 +51,5 @@
 20、[添加事件监听addEventListener、移除事件监听removeEventListener](eventListener.html)
 
 21、[监听鼠标按下键盘事件](EventListener-keydown.html)
+
+22、[Video封面样式](video/index.html)
