@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>File和Base64（DataURL）互相转换</title>
+  </head>
+
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .display--block {
+      display: block;
+    }
+
+    .base64-textarea {
+      width: 1000px;
+      height: 300px;
+      display: block;
+      margin-top: 20px;
+      font-size: 16px;
+    }
+
+    .button {
+      margin-top: 20px;
+    }
+
+    .file-text {
+      margin-top: 20px;
+    }
+  </style>
+
+  <body>
+    <input type="file" name="" id="fileInput" class="display--block" />
+
+    <textarea rows="10" id="base64" class="base64-textarea"></textarea>
+
+    <button id="base64ConvertToImage" class="button">base64转为File</button>
+
+    <div id="file-text" class="file-text"></div>
+
+    <script src="./script.js"></script>
+
+    <script>
+     
+      // 文件选中事件处理
+      async function handleFileInputChange(event) {
+        let file = event.target.files[0];
+        console.log(file);
+
+        let base64 = await fileToBase64(file);
+        document.getElementById("base64").value = base64;
+      }
+
+      // 监听文件上传
+      let fileInput = document.getElementById("fileInput");
+
+      fileInput.addEventListener("change", handleFileInputChange, false);
+
+      // base64转file
+      function handleBase64ConvertToImageButtonClick() {
+        let base64 = document.getElementById("base64").value;
+        let file = base64ToFile(base64);
+
+        console.log(file);
+
+        let data = {
+          lastModified: file.lastModified,
+          lastModifiedDate: file.lastModifiedDate,
+          name: file.name,
+          size: file.size,
+          type: file.type,
+        };
+
+        document.getElementById("file-text").innerText = JSON.stringify(
+          data,
+          null,
+          2
+        );
+      }
+
+      // 监听base64转换
+      let base64ConvertToImageButton = document.getElementById(
+        "base64ConvertToImage"
+      );
+
+      base64ConvertToImageButton.addEventListener(
+        "click",
+        handleBase64ConvertToImageButtonClick,
+        false
+      );
+    </script>
+  </body>
+</html>

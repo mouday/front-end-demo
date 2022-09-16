@@ -57,3 +57,5 @@
 23、[实现1px的细线](1px.html)
 
 24、[实例：摆动的小球（钟摆效果）](clock.html)
+
+25、[File和Base64（DataURL）互相转换](base64-file/base64-file.html)
