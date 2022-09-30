@@ -61,3 +61,5 @@
 25、[File和Base64（DataURL）互相转换](base64-file/base64-file.html)
 
 26、[阅读进度条](progress-bar/index.html)
+
+27、[css：利用伪类处理图片加载失败的样式问题](image-error/index.html)
