@@ -63,3 +63,5 @@
 26、[阅读进度条](progress-bar/index.html)
 
 27、[css：利用伪类处理图片加载失败的样式问题](image-error/index.html)
+
+28、[文件上传工具](post-file/post-file.html)

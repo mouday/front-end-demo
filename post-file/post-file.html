@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>POST FILE</title>
+
+    <!-- Import style -->
+    <link rel="stylesheet" href="//unpkg.com/element-plus/dist/index.css" />
+
+    <!-- Import Vue 3 -->
+    <script src="//unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <!-- Import component library -->
+    <script src="//unpkg.com/element-plus"></script>
+
+    <!-- Icon 图标 -->
+    <script src="//unpkg.com/@element-plus/icons-vue"></script>
+  </head>
+
+  <body>
+    <div id="app">
+      <h1 style="text-align: center;">文件上传工具</h1>
+
+      <el-form label-width="100px" :model="form" style="max-width: 1000px">
+        <el-form-item label="提交地址">
+          <el-input v-model="form.action" @change="handleChange" />
+        </el-form-item>
+
+        <el-form-item label="文件">
+          <el-upload
+            class="upload-demo"
+            style="width: 100%"
+            drag
+            :action="form.action"
+            :name="form.name"
+            :headers="uploadHeaders"
+            :data="uploadData"
+            multiple
+            :on-error="handleUploadError"
+            :on-success="handleUploadSuccess"
+          >
+            <el-icon class="el-icon--upload"><upload-filled /></el-icon>
+            <div class="el-upload__text">
+              拖拽到此 或 <em>点击上传</em>
+            </div>
+          </el-upload>
+        </el-form-item>
+
+        <el-form-item label="文件字段名">
+          <el-input v-model="form.name" @change="handleChange" />
+        </el-form-item>
+
+        <el-form-item label="请求头部">
+          <el-input
+            v-model="form.headers"
+            type="textarea"
+            :rows="5"
+            @change="handleChange"
+          />
+        </el-form-item>
+
+        <el-form-item label="额外参数">
+          <el-input
+            v-model="form.data"
+            type="textarea"
+            :rows="5"
+            @change="handleChange"
+          />
+        </el-form-item>
+      </el-form>
+    </div>
+
+    <script src="./js/script.js"></script>
+  </body>
+</html>
