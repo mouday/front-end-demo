@@ -7,23 +7,26 @@
     <title>POST FILE</title>
 
     <!-- Import style -->
-    <link rel="stylesheet" href="//unpkg.com/element-plus/dist/index.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/element-plus@2.2.17/dist/index.css"
+    />
 
     <!-- Import Vue 3 -->
-    <script src="//unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://unpkg.com/vue@3.2.40/dist/vue.global.js"></script>
 
     <!-- Import component library -->
-    <script src="//unpkg.com/element-plus"></script>
+    <script src="https://unpkg.com/element-plus@2.2.17/dist/index.full.js"></script>
 
     <!-- Icon 图标 -->
-    <script src="//unpkg.com/@element-plus/icons-vue"></script>
+    <script src="https://unpkg.com/@element-plus/icons-vue@2.0.9/dist/index.iife.min.js"></script>
   </head>
 
   <body>
-    <div id="app">
-      <h1 style="text-align: center;">文件上传工具</h1>
+    <div id="app" style="width: 1000px; margin: 0 auto">
+      <h1 style="text-align: center">文件上传工具</h1>
 
-      <el-form label-width="100px" :model="form" style="max-width: 1000px">
+      <el-form label-width="100px" :model="form">
         <el-form-item label="提交地址">
           <el-input v-model="form.action" @change="handleChange" />
         </el-form-item>
@@ -42,9 +45,7 @@
             :on-success="handleUploadSuccess"
           >
             <el-icon class="el-icon--upload"><upload-filled /></el-icon>
-            <div class="el-upload__text">
-              拖拽到此 或 <em>点击上传</em>
-            </div>
+            <div class="el-upload__text">拖拽到此 或 <em>点击上传</em></div>
           </el-upload>
         </el-form-item>
 
