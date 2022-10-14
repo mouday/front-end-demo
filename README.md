@@ -35,30 +35,30 @@
 
 [14、一行上不同大小的文字上下居中对齐](one-line-text.html)
 
-[15、selection自定义用户选中部分颜色](selection.html)
+[15、selection 自定义用户选中部分颜色](selection.html)
 
-16、监听浏览器scroll滚动事件,触顶和触底
+16、监听浏览器 scroll 滚动事件,触顶和触底
 
-- [16.1、监听浏览器scroll滚动事件,触顶和触底](scroll-event/scroll-event-document.html)
-- [16.2、监听元素scroll滚动事件,触顶和触底](scroll-event/scroll-event-element.html)
+- [16.1、监听浏览器 scroll 滚动事件,触顶和触底](scroll-event/scroll-event-document.html)
+- [16.2、监听元素 scroll 滚动事件,触顶和触底](scroll-event/scroll-event-element.html)
 
 17、[文字模糊样式](css-filter.html)
 
-18、[CSS层级小技巧：在滚动时自动添加头部阴影](CSS-auto-header-shadow.html)
+18、[CSS 层级小技巧：在滚动时自动添加头部阴影](CSS-auto-header-shadow.html)
 
-19、[requestAnimationFrame实现浏览器动画](requestAnimationFrame.html)
+19、[requestAnimationFrame 实现浏览器动画](requestAnimationFrame.html)
 
-20、[添加事件监听addEventListener、移除事件监听removeEventListener](eventListener.html)
+20、[添加事件监听 addEventListener、移除事件监听 removeEventListener](eventListener.html)
 
 21、[监听鼠标按下键盘事件](EventListener-keydown.html)
 
-22、[Video封面样式](video/index.html)
+22、[Video 封面样式](video/index.html)
 
-23、[实现1px的细线](1px.html)
+23、[实现 1px 的细线](1px.html)
 
 24、[实例：摆动的小球（钟摆效果）](clock.html)
 
-25、[File和Base64（DataURL）互相转换](base64-file/base64-file.html)
+25、[File 和 Base64（DataURL）互相转换](base64-file/base64-file.html)
 
 26、[阅读进度条](progress-bar/index.html)
 
@@ -66,6 +66,8 @@
 
 28、[文件上传工具](post-file/post-file.html)
 
-29、[border-radius示例](border-radius.html)
+29、[border-radius 示例](border-radius.html)
 
 30、[tailwindcss 示例](tailwindcss-demo.html)
+
+31、[table-border 表格边框 ](table-border.html)
