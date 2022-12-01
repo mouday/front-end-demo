@@ -73,3 +73,5 @@
 31、[table-border 表格边框 ](table-border.html)
 
 32、[MutationObserver监听DOM节点变化](MutationObserver.html)
+
+33、[ResizeObserver监听DOM节点变化](ResizeObserver-demo.html)
