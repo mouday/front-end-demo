@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>自定义鼠标右键菜单</title>
+  </head>
+
+  <body>
+    <div id="menu">
+      <div
+        class="menu-item"
+        data-id="1"
+      >
+        功能1
+      </div>
+      <div
+        class="menu-item"
+        data-id="2"
+      >
+        功能2
+      </div>
+      <div
+        class="menu-item"
+        data-id="3"
+      >
+        功能3
+      </div>
+      <div
+        class="menu-item"
+        data-id="4"
+      >
+        功能4
+      </div>
+      <div
+        class="menu-item"
+        data-id="5"
+      >
+        功能5
+      </div>
+    </div>
+
+    <script>
+      //获取我们自定义的右键菜单
+      const menu = document.querySelector('#menu')
+
+      // 右键打开菜单
+      window.oncontextmenu = function (e) {
+        //取消默认的浏览器自带右键 很重要！！
+        e.preventDefault()
+
+        //根据事件对象中鼠标点击的位置，进行定位
+        menu.style.left = e.clientX + 'px'
+        menu.style.top = e.clientY + 'px'
+
+        //改变自定义菜单的宽，让它显示出来
+        menu.style.display = 'block'
+        // menu.style.width = '125px'
+        // menu.style.height = '125px'
+      }
+
+      //关闭右键菜单，很简单
+      window.onclick = function (e) {
+        //用户触发click事件就可以关闭了，因为绑定在window上，按事件冒泡处理，不会影响菜单的功能
+        menu.style.display = 'none'
+      }
+
+      // 监听菜单点击
+      menu.addEventListener('click', function (e) {
+        console.log(e.target.dataset.id)
+      })
+    </script>
+
+    <style>
+      #menu {
+        /* 隐藏自定义菜单 */
+        display: none;
+        width: 130px;
+        /*自定义菜单相对与body元素进行定位*/
+        position: absolute;
+      }
+
+      .menu-item {
+        height: 30px;
+        line-height: 30px;
+        padding: 0 10px;
+      }
+
+      .menu-item:hover {
+        background-color: #f1f1f1;
+      }
+    </style>
+  </body>
+</html>
