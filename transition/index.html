@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Transition</title>
+  </head>
+  <body>
+    <style>
+      html,
+      body {
+        height: 100%;
+      }
+
+      body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .box {
+        width: 100px;
+        height: 100px;
+        background-color: green;
+      }
+
+      .box + .box {
+        margin-top: 20px;
+      }
+    </style>
+
+    <style>
+      .box-hover:hover {
+        height: 400px;
+        width: 400px;
+      }
+
+      .transition-all {
+        /*  指定状态变化所需要的时间 */
+        transition: all 1s;
+      }
+
+      .transition-height {
+        /*  只有height的变化需要1秒实现，其他变化（主要是width）依然瞬间实现 */
+        transition: height 1s;
+      }
+
+      .transition-delay {
+        /*  width在1秒之后，再开始变化，也就是延迟（delay）1秒 */
+        transition: height 1s, width 1s 1s;
+      }
+
+      .transition-linear {
+        transition: all 1s linear;
+      }
+
+      .transition-cubic-bezier {
+        transition: all 1s cubic-bezier(0.83, 0.97, 0.05, 1.44);
+      }
+    </style>
+
+    <div class="box box-hover transition-all"></div>
+    <div class="box box-hover transition-height"></div>
+    <div class="box box-hover transition-delay"></div>
+    <div class="box box-hover transition-linear"></div>
+    <div class="box box-hover transition-cubic-bezier"></div>
+  </body>
+</html>
