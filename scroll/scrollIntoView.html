@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>scrollIntoView</title>
+  </head>
+
+  <body>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        text-align: center;
+      }
+
+      .btn {
+        margin-top: 20px;
+      }
+
+      pre,
+      code {
+        text-align: unset;
+      }
+
+      .top {
+        margin-top: 20px;
+        height: 1500px;
+        line-height: 1500px;
+        background-color: #95e1d3;
+      }
+
+      .box {
+        margin-top: 20px;
+        height: 200px;
+        line-height: 200px;
+        background-color: #eaffd0;
+      }
+    </style>
+
+    <button id="btn" class="btn">滚动到Box</button>
+
+    <div class="top">TOP</div>
+
+    <div class="box">Box</div>
+
+    <script>
+      let btn = document.querySelector("#btn");
+
+      btn.addEventListener("click", function () {
+        let top = document.querySelector(".box");
+        top.scrollIntoView({
+          block: 'start',
+          behavior: "smooth",
+        });
+      });
+    </script>
+  </body>
+</html>

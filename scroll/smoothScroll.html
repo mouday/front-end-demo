@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>smoothScroll</title>
+  </head>
+
+  <body>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        text-align: center;
+      }
+
+      .btn {
+        margin-top: 20px;
+      }
+
+      .box {
+        margin-top: 20px;
+        height: 1500px;
+        line-height: 1500px;
+        background-color: #95e1d3;
+      }
+    </style>
+
+    <button id="to-bottom" class="btn">滚动到底部</button>
+
+    <div class="box">Box</div>
+
+    <button id="tp-top" class="btn">滚动到顶部</button>
+
+    <script>
+      // 封装一个回到底部或者顶部的函数
+      function scrollToTop(position) {
+        // 使用requestAnimationFrame，如果没有则使用setTimeOut
+        if (!window.requestAnimationFrame) {
+          window.requestAnimationFrame = function (callback) {
+            return setTimeout(callback, 20);
+          };
+        }
+
+        // 获取当前元素滚动的距离
+        let scrollTopDistance =
+          document.documentElement.scrollTop || document.body.scrollTop;
+
+        function smoothScroll() {
+          console.log('smoothScroll');
+          // 如果你要滚到顶部，那么position传过来的就是0，下面这个distance肯定就是负值。
+          let distance = position - scrollTopDistance;
+          // 每次滚动的距离要不一样，制造一个缓冲效果
+          scrollTopDistance = scrollTopDistance + distance / 5;
+          // 判断条件
+          if (Math.abs(distance) < 1) {
+            window.scrollTo(0, position);
+          } else {
+            window.scrollTo(0, scrollTopDistance);
+            requestAnimationFrame(smoothScroll);
+          }
+        }
+
+        smoothScroll();
+      }
+
+      // 滑动顶部
+      let toTop = document.querySelector("#tp-top");
+
+      toTop.addEventListener("click", function () {
+        // 回到顶部
+        scrollToTop(0);
+      });
+
+      // 滑动底部
+      let toBottom = document.querySelector("#to-bottom");
+
+      toBottom.addEventListener("click", function () {
+        // 滚到底部
+        scrollToTop(document.documentElement.scrollHeight - window.innerHeight);
+      });
+    </script>
+  </body>
+</html>

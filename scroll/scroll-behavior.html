@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>scroll-behavior</title>
+  </head>
+
+  <body>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        text-align: center;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      .btn {
+        margin-bottom: 20px;
+      }
+
+      .box {
+        margin-top: 20px;
+        height: 1500px;
+        line-height: 1500px;
+        background-color: #95e1d3;
+      }
+    </style>
+
+    <div class="box" id="box">Box</div>
+
+    <a href="#box" class="btn">回到顶部</a>
+  </body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>scroll</title>
+  </head>
+
+  <body>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        text-align: center;
+      }
+
+      .btn {
+        margin-top: 20px;
+      }
+
+      .box {
+        margin-top: 20px;
+        height: 1500px;
+        line-height: 1500px;
+        background-color: #95e1d3;
+      }
+    </style>
+
+    <button id="to-bottom" class="btn">滚动到底部</button>
+
+    <div class="box">Box</div>
+
+    <button id="tp-top" class="btn">滚动到顶部</button>
+
+    <script>
+      // 滑动底部
+      let toBottom = document.querySelector("#to-bottom");
+
+      toBottom.addEventListener("click", function () {
+        window.scrollTo({
+          top: document.documentElement.scrollHeight,
+          behavior: "smooth",
+        });
+      });
+
+      // 滑动顶部
+      let toTop = document.querySelector("#tp-top");
+
+      toTop.addEventListener("click", function () {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      });
+    </script>
+  </body>
+</html>
