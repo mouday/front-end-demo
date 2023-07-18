@@ -5,7 +5,13 @@
 }
 
 body {
+}
+
+.container {
+  height: 100%;
   padding: 20px;
+  display: flex;
+  flex-direction: column;
 }
 
 .title {
@@ -13,18 +19,24 @@ body {
 }
 
 .main {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  column-gap: 20px;
-  padding-top: 40px;
+  flex: 1;
+  width: 100%;
+  display: flex;
+  // grid-template-columns: repeat(2, 1fr);
+  // column-gap: 20px;
+  // padding-top: 40px;
 }
 
 .textarea-wrap {
   //   margin-top: 40px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .input-textarea,
 .output-textarea {
+  flex: 1;
   width: 100%;
   font-size: 18px;
   margin-top: 10px;
@@ -33,6 +45,12 @@ body {
 
 .error-message {
   color: red;
+}
+
+.mo-button-wrap {
+  flex-shrink: 0;
+  padding: 0 10px;
+  align-self: center;
 }
 
 /* 按钮美化 */
@@ -54,7 +72,7 @@ body {
   -moz-user-select: none;
   -webkit-user-select: none;
   -ms-user-select: none;
-  padding: 12px 20px;
+  padding: 4px 12px;
   font-size: 14px;
   font-weight: 500;
   border-radius: 4px;

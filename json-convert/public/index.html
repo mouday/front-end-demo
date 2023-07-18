@@ -1,55 +1,61 @@
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JSON 数据转换</title>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible"
-          content="IE=edge">
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="./css/main.css" />
+  </head>
 
-    <link rel="stylesheet"
-          href="./css/main.css">
-</head>
-
-<body>
-    <h2 class="title">Json 数据转换</h2>
-    <div class="main">
+  <body>
+    <div class="container">
+      <h2 class="title">JSON 数据转换</h2>
+      <div class="main">
         <div class="textarea-wrap">
-            <div>输入：<select id="input-select">
-                    <option value=""
-                            selected>自动识别</option>
-                    <option value="js">js</option>
-                    <option value="json">json</option>
-                    <!-- <option value="php">php</option> -->
-                </select>
-                <button onclick="handleConvert()" class="mo-button"> 转换 </button>
-            </div>
-            <textarea rows="24"
-                      class="input-textarea"
-                      id="input-textarea"
-                      onchange="handleConvert()"
-                      ></textarea>
-            <div id="error-message"
-                 class="error-message"></div>
+          <div>
+            <span>输入：</span>
+            <select id="input-select">
+              <option value="" selected>自动识别</option>
+              <!-- <option value="js">js</option>
+              <option value="json">json</option> -->
+              <!-- <option value="php">php</option> -->
+            </select>
+            <div id="error-message" class="error-message"></div>
+          </div>
+
+          <textarea
+            rows="24"
+            class="input-textarea"
+            id="input-textarea"
+            onchange="handleConvert()"
+          ></textarea>
+        </div>
+
+        <div class="mo-button-wrap">
+          <button onclick="handleConvert()" class="mo-button">转换</button>
         </div>
 
         <div class="textarea-wrap">
-            <div>输出：<select id="output-select">
-                    <!-- <option value=""
+          <div>
+            输出：<select id="output-select">
+              <!-- <option value=""
                         selected>自动识别</option> -->
-                    <!-- <option value="js">js</option> -->
-                    <option value="json"
-                            selected>json</option>
-                    <option value="php">php</option>
-                </select></div>
-            <textarea rows="24"
-                      value="输入"
-                      class="output-textarea"
-                      id="output-textarea"></textarea>
+              <!-- <option value="js">js</option> -->
+              <!-- <option value="json" selected>json</option>
+              <option value="php">php</option> -->
+            </select>
+          </div>
+
+          <textarea
+            rows="24"
+            value="输入"
+            class="output-textarea"
+            id="output-textarea"
+          ></textarea>
         </div>
+      </div>
     </div>
     <script src="./js/main.js"></script>
-</body>
-
+  </body>
 </html>
