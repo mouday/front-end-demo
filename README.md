@@ -85,3 +85,5 @@
 37、[CSS 实现 hover 时文字波浪式变色效果](css/hover-transform.html)
 
 38、[CSS 线性渐变 linear-gradient](gradient/linear-gradient.html)
+
+39、[隐藏移动端的滚动条](scroll/scroll-hidden.html)

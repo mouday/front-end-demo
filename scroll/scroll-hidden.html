@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>隐藏移动端的滚动条</title>
+  </head>
+  <body>
+    <style>
+      .list {
+        display: flex;
+        overflow: auto;
+        gap: 10px;
+        padding: 10px;
+        /* clip-path: inset(0 0 10px); */
+        -webkit-mask: linear-gradient(red, red) 0 0/100% calc(100% - 10px) no-repeat;
+      }
+
+      .item {
+        width: 100px;
+        height: 100px;
+        background: royalblue;
+        border-radius: 8px;
+        flex-shrink: 0;
+      }
+    </style>
+
+    <div class="list">
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+    </div>
+  </body>
+</html>
