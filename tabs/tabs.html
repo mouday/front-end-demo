@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>tab切换线条跟随效果</title>
+  </head>
+  <body>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style>
+      .tabs_wrap {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        font-size: 32px;
+        color: #333;
+        font-weight: bold;
+        height: 88px;
+        line-height: 88px;
+        border: 4px solid skyblue;
+      }
+
+      .item {
+        cursor: pointer;
+        border: 1px solid pink;
+        flex: 1;
+        text-align: center;
+      }
+
+      .active {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 50px;
+        height: 8px;
+        background-color: #2979ff;
+        border-radius: 50px;
+        transition: left 0.3s ease;
+      }
+    </style>
+    <div id="app">
+      <div class="tabs_wrap">
+        <div
+          v-for="(item, index) in tabsList"
+          :key="item.value"
+          :class="['item','item-' + (index+1)]"
+          @click="changeIndex(index)"
+        >
+          {{ item.label || ""}}
+        </div>
+        <div class="active" :style="{left: left + 'px'}"></div>
+      </div>
+    </div>
+
+    <script>
+      const { createApp } = Vue;
+
+      const app = {
+        data() {
+          return {
+            currentIndex: 0,
+            left: 0,
+            tabsList: [
+              {
+                label: "推荐",
+                value: "1",
+              },
+              {
+                label: "热点",
+                value: "2",
+              },
+              {
+                label: "八卦",
+                value: "3",
+              },
+              {
+                label: "娱乐",
+                value: "4",
+              },
+            ],
+          };
+        },
+
+        methods: {
+          initPostion(index) {
+            let currentItem = document.querySelector(".item-" + (index + 1));
+            let activeItem = document.querySelector(".active");
+            console.log(currentItem.offsetWidth);
+            console.log(activeItem.offsetWidth);
+
+            // 计算下划线位置
+            this.left =
+              currentItem.offsetWidth * index +
+              (currentItem.offsetWidth - activeItem.offsetWidth) / 2;
+            console.log(this.left);
+          },
+
+          changeIndex(index) {
+            if (this.currentIndex === index) return;
+
+            this.currentIndex = index;
+            this.initPostion(index);
+          },
+        },
+
+        mounted() {
+          this.initPostion(0);
+        },
+      };
+
+      createApp(app).mount("#app");
+    </script>
+  </body>
+</html>

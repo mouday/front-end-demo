@@ -87,3 +87,5 @@
 38、[CSS 线性渐变 linear-gradient](gradient/linear-gradient.html)
 
 39、[隐藏移动端的滚动条](scroll/scroll-hidden.html)
+
+40、[tab切换线条跟随效果](tabs/tabs.html)
