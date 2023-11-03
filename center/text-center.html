@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>text-center</title>
+  </head>
+  <body>
+    <style>
+      body {
+        background-color: #eeeeee;
+        display: flex;
+      }
+
+      .box-wrap {
+        height: 300px;
+        width: 300px;
+        background-color: green;
+
+        margin-right: 20px;
+      }
+
+      .box {
+        background-color: pink;
+        height: 100px;
+        width: 100px;
+      }
+
+      .box-wrap--center {
+        position: relative;
+      }
+
+      .box-wrap--center .box {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+      }
+    </style>
+
+    <div class="box-wrap">
+      <div class="box"></div>
+    </div>
+
+    <div class="box-wrap box-wrap--center">
+      <div class="box"></div>
+    </div>
+  </body>
+</html>

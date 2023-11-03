@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>transform</title>
+  </head>
+  <body>
+    <style>
+      .box {
+        width: 200px;
+        height: 200px;
+        margin: 0 auto;
+        line-height: 200px;
+        border: 1px solid green;
+
+        text-align: center;
+      }
+
+      .box + .box {
+        margin-top: 100px;
+      }
+
+      .rotate {
+        animation: rotate-ani 2s linear infinite;
+      }
+
+      @keyframes rotate-ani {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+
+    <div class="box">正常元素</div>
+
+    <div class="box rotate">旋转45deg</div>
+  </body>
+</html>
