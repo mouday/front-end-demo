@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS实线边框loading动画实例页面</title>
+  </head>
+  <body>
+    <!-- CSS实线边框loading动画实例页面 -->
+    <!-- https://www.zhangxinxu.com/study/201808/border-solid-loading-animation.php -->
+    <style>
+      .box {
+        position: relative;
+        height: 200px;
+        width: 200px;
+
+        background-color: green;
+        color: #fff;
+        font-size: 24px;
+        text-align: center;
+        line-height: 200px;
+      }
+
+      .box::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        border: 2px solid #cd0000;
+        animation: borderAround 1.5s infinite linear;
+      }
+
+      @keyframes borderAround {
+        0%,
+        100% {
+          clip: rect(0 200px 2px 0);
+        }
+        25% {
+          clip: rect(0, 200px, 200px, 198px);
+        }
+        50% {
+          clip: rect(198px, 200px, 200px, 0);
+        }
+        75% {
+          clip: rect(0, 2px, 200px, 0);
+        }
+      }
+    </style>
+
+    <div class="box">box</div>
+  </body>
+</html>

@@ -95,3 +95,5 @@
 42、[旋转动画 transform-rotate](transform/transform-rotate.html)
 
 43、[水平垂直居中](center/text-center.html)
+
+44、[CSS实线边框loading动画实例页面](clip-path/loading.html)
